@@ -49,7 +49,7 @@ class App extends Component {
 
           <footer>
             <p>
-              тут футер. я футер. я копирайт. а я ще якась хуйня.
+              ТОВ "ЛОХ сервіс" &copy; 2020
             </p>
           </footer>
           </div>

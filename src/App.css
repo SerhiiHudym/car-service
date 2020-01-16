@@ -48,7 +48,7 @@
 
 #nav-list > li > a {
   text-decoration: none;
-  color: red;
+  color: blue;
 }
 
 #nav-list > li > a:hover {
@@ -59,3 +59,8 @@
   height: 20px;
   width: 30%;
 } */
+
+footer > p {
+  display: flex;
+  justify-content: center;
+}
