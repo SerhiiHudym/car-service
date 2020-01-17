@@ -7,26 +7,57 @@ import About from './components/About'
 import Contacts from './components/Contacts'
 import logo from './logo.png';
 import './App.css';
+// import navSlide from './burger'
 
 class App extends Component {
+  navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    // burger.addEventListener('click', () => {
+        // Toggle Nav
+        nav.classList.toggle('nav-active');
+        console.log(111) // WORKS!
+
+            // Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = ''
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 5 + 0.5}s`;
+            }
+            // console.log(index / 5 + 1);
+        })
+
+        // Burger Animation
+        burger.classList.toggle('toggle')
+    // });
+  }
+
   render() {
+    // navSlide()
     return (
 
       <BrowserRouter>
         <div>
+          
           <nav>
-          <ul id='nav-list'>
+            <div className="logo">
+              Грузовой сервис
+            </div>
+          <ul className="nav-links">
           <li>
               <NavLink to='/' activeClassName='active'>
-                ТОВ "Loh Service"
+                Домашня
                 {/* <img id="logo" src={logo}></img> */}
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to='/about' activeClassName='active'>
                 Про нас
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to='/services' activeClassName='active'>
                 Послуги
@@ -38,14 +69,23 @@ class App extends Component {
               </NavLink>
             </li>
           </ul>
+          <div className="burger" onClick={this.navSlide}>
+            <div className="line1"></div>
+            <div className="line2"></div>
+            <div className="line3"></div>
+        </div>
 
-          <Route exact path='/' component={Main} />
-          <Route path='/about' component={About} />
-          <Route path='/services' component={Home} />
-          <Route path='/contacts' component={Contacts} />
+
           {/* <Route path='/basic-routing' component={Levels} /> */}
         
           </nav>
+          <Route exact path='/' component={About} />
+          {/* <Route path='/about' component={Main} /> */}
+          <Route path='/services' component={Home} />
+          <Route path='/contacts' component={Contacts} />
+
+
+
 
           <footer>
             <p>
